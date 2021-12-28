@@ -1,9 +1,6 @@
 const { getTalkerFile } = require('./getTalkers');
 
-// const crypto = require('crypto'); // para criar token
-// const generateToken = () => crypto.randomBytes(8).toString('hex');
-// const token = generateToken();
-
+// Requisito 2
 const getTalkerById = async (req, res) => {
   const { id } = req.params;
   const talkerFile = await getTalkerFile();
