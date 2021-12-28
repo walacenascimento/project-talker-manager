@@ -1,8 +1,8 @@
 const fs = require('fs').promises; // importando o pacote 'fs' para ser utilizado no código abaixo
 
-const path = './talker.json';
 // Criando a função getTalker quer retornará um array com todas as pessoas palestrantes cadastradas
 const getTalkerFile = async () => {
+  const path = './talker.json';
   const file = await fs.readFile(path, 'utf8'); // declarando a constate 'talker' que requebe o método síncrono (fs.readFileSync) quer fará a leitura do arquivo.
   const parsedFile = JSON.parse(file); // declarando a constante 'talkerJson' que recebe o resultado da leitura armazenada no 'talker'.
   if (!file || parsedFile.length === 0) {
