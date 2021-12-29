@@ -5,6 +5,9 @@ const getTalkerById = require('./Middleware/getTalkerById');
 
 const { createToken, validateEmail, validatePassword } = require('./Middleware/postCreateToken');
 
+const { validateToken, validateName, validateAge, validateTalk,
+  validateDate, validateRate, createTalker } = require('./Middleware/postCreateTalker');
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -24,6 +27,9 @@ app.get('/talker/:id', getTalkerById);
 
 // app post, recebendo no parâmetros a rota '/login' e os middleware ' de validação de password, email, e criação de token aleatório Requisito 3 
 app.post('/login', validatePassword, validateEmail, createToken);
+
+app.post('/talker', validateToken, validateName, validateAge,
+validateTalk, validateDate, validateRate, createTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
