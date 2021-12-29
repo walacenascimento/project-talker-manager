@@ -31,7 +31,7 @@ const validateAge = (req, res, next) => {
 
 const validateTalk = (req, res, next) => {
   const { talk } = req.body;
-  if (!talk || !talk.watchedAt || !talk.rate) {
+  if (!talk || !talk.watchedAt || (!talk.rate && talk.rate !== 0)) { // adicionei a partir do && para o req5
     return res.status(400).json({
       message: 'O campo "talk" é obrigatório e "watchedAt" e "rate" não podem ser vazios',
     });
